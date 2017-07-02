@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,6 +40,8 @@ public class Invoice implements Serializable {
 	private int spentBonusPoints;
 	private int newBonusPoints;
 	
+	@OneToOne
+	private GeneralDiscount generalDiscount;
 	@OneToMany(mappedBy = "invoice")
 	private Set<InvoiceItem> invoiceItem = new HashSet<InvoiceItem>(0);
 	@JsonIgnore
