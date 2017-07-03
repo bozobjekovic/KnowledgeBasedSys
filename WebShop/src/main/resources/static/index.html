@@ -34,7 +34,7 @@
                 	<span class="icon-bar"></span>
                 </a>
                 <div class="navbar-inner">
-                    <a class="brand" href="index.html"><img src="images/logo.png" alt="Bootsshop"/></a>
+                    <a class="brand" ng-href="/#/"><img src="images/logo.png" alt="Bootsshop"/></a>
                     <form class="form-inline navbar-search" method="post" action="products.html">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <select class="srchTxt">
@@ -70,12 +70,9 @@
                     	</a>
                     </div>
                     <ul id="sideManu" class="nav nav-tabs nav-stacked" ng-controller="MainController as mainCtrl">
-                    
-                    
-                    
                     	<li ng-repeat="category in mainCtrl.categories" ng-class="$index != 0 ? 'subMenu' : 'subMenu open'"><a class="mainCat" ng-if="category.supercategory == null"> {{category.name}}</a>
                             <ul ng-if="category.supercategory == null" ng-style="$index != 0 && {'display': 'none'}">
-                                <li ng-repeat="subcategory in mainCtrl.categories"><a class="active" ng-if="subcategory.supercategory.id == category.id" href="products.html"><i class="icon-chevron-right"></i>{{subcategory.name}} </a></li>
+                                <li ng-repeat="subcategory in mainCtrl.categories"><a class="active" ng-if="subcategory.supercategory.id == category.id" ng-href="/#/products/{{subcategory.id}}"><i class="icon-chevron-right"></i>{{subcategory.name}} </a></li>
                             </ul>
                         </li>
                     </ul>
@@ -113,6 +110,10 @@
 	<script src="scripts/factories/profile-factory.js"></script>
 	<script src="scripts/controllers/login-controller.js"></script>
 	<script src="scripts/factories/login-factory.js"></script>
+	<script src="scripts/controllers/products-controller.js"></script>
+	<script src="scripts/factories/products-factory.js"></script>
+	<script src="scripts/controllers/product-controller.js"></script>
+	<script src="scripts/factories/product-factory.js"></script>
 	
 	
 	<!-- <script src="js/bootshop.js"></script> -->

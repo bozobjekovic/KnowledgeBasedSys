@@ -1,7 +1,7 @@
 (function(angular) {
 	'use strict';
 
-	angular.module('main', ['login', 'profile']).controller('MainController', MainController);
+	angular.module('main', ['login', 'profile', 'products', 'product']).controller('MainController', MainController);
 	
 	MainController.$inject = ['$scope', '$localStorage', 'MainFactory'];
 	
@@ -14,12 +14,11 @@
 			setChangeActions();
 	 	});
 		
-		/*
+		
 		MainFactory.getNewestProducts().then(function(items) {
 			 vm.newest = items;
 	 	});
-	 	*/
-	
+		
 	}
 	
 	function setChangeActions() {

@@ -52,3 +52,34 @@ INSERT INTO product_category (`id`, `max_discount`, `name`, `supercategory_id`) 
 INSERT INTO product_category (`id`, `max_discount`, `name`, `supercategory_id`) VALUES ('22', '0', 'Drama', 5);
 INSERT INTO product_category (`id`, `max_discount`, `name`, `supercategory_id`) VALUES ('23', '0', 'Mystery', 5);
 INSERT INTO product_category (`id`, `max_discount`, `name`, `supercategory_id`) VALUES ('24', '0', 'Romance', 5);
+
+INSERT INTO product  VALUES ('1', true, '34252', '2017-06-06', false, 'image', '4', 'Bag 1', '1070.67', '34', '6');
+INSERT INTO product  VALUES ('2', true, '32456', '2017-06-06', false, 'image', '4', 'Bag 2', '1170.67', '15', '6');
+INSERT INTO product  VALUES ('3', true, '35785678', '2017-06-06', false, 'image', '4', 'Bag 3', '2070.67', '37', '6');
+INSERT INTO product  VALUES ('4', true, '45373567', '2017-06-06', false, 'image', '4', 'Bag 4', '3070.67', '20', '6');
+INSERT INTO product  VALUES ('5', true, '346233', '2017-06-06', false, 'image', '4', 'Bag 5', '4070.67', '19', '6');
+INSERT INTO product  VALUES ('6', true, '653884', '2017-06-06', false, 'image', '4', 'Bag 6', '5070.67', '22', '6');
+INSERT INTO product  VALUES ('7', true, '4234423', '2017-06-06', false, 'image', '4', 'Re glued', '55.67', '144', '7');
+INSERT INTO product  VALUES ('8', true, '342423', '2017-06-06', false, 'image', '4', 'Blue glue', '68.67', '32', '7');
+INSERT INTO product  VALUES ('9', true, '887688', '2017-06-06', false, 'image', '4', 'Pencils pack', '100.30', '5', '8');
+INSERT INTO product  VALUES ('10', true, '098868', '2017-06-06', false, 'image', '4', 'Good pencil', '80.67', '88', '8');
+INSERT INTO product  VALUES ('11', true, '43664', '2017-06-06', false, 'image', '4', 'Pencil 4', '20.66', '32', '8');
+INSERT INTO product  VALUES ('12', true, '97789', '2017-06-06', false, 'image', '4', 'Math', '1000.43', '34', '9');
+INSERT INTO product  VALUES ('13', true, '6454654', '2017-06-06', false, 'image', '4', 'English', '2000.67', '6', '9');
+INSERT INTO product  VALUES ('14', true, '65655', '2017-06-06', false, 'image', '4', 'History', '700.89', '31', '9');
+INSERT INTO product  VALUES ('15', true, '5463456', '2017-06-06', false, 'image', '4', 'Camera 1', '5070.67', '34', '10');
+INSERT INTO product  VALUES ('16', true, '14562352', '2017-06-06', false, 'image', '4', 'Camera 2', '6005.67', '14', '10');
+INSERT INTO product  VALUES ('17', true, '213332', '2017-06-06', false, 'image', '4', 'Asus 3425', '725.78', '4', '11');
+INSERT INTO product  VALUES ('18', true, '23442', '2017-06-06', false, 'image', '4', 'MacBook PRO', '2225.78', '4','11');
+INSERT INTO product  VALUES ('19', true, '64574', '2017-06-06', false, 'image', '4', 'MacAir', '1625.43', '4', '11');
+INSERT INTO product  VALUES ('20', true, '4647', '2017-06-06', false, 'image', '4', 'Dell 32141', '625.78', '4', '11');
+INSERT INTO product  VALUES ('21', true, '86790', '2017-06-06', false, 'image', '4', 'HP Spectre', '2225.78', '4', '11');
+INSERT INTO product  VALUES ('22', true, '123241', '2017-06-06', false, 'image', '4', 'Iphone 7', '855.67', '4', '12');
+INSERT INTO product  VALUES ('23', true, '746453', '2017-06-06', false, 'image', '4', 'LG G3', '255.67', '14', '12');
+INSERT INTO product  VALUES ('24', true, '97864', '2017-06-06', false, 'image', '4', 'Iphone 6', '545.54', '6', '12');
+INSERT INTO product  VALUES ('25', true, '356785', '2017-06-06', false, 'image', '4', 'Nokia 3310', '15.37', '4', '12');
+INSERT INTO product  VALUES ('26', true, '979777', '2017-06-06', false, 'image', '4', 'Samsung S8', '985.78', '15', '12');
+INSERT INTO product  VALUES ('27', true, '234234', '2017-06-06', false, 'image', '4', 'Drama book', '1000.43', '34', '22');
+INSERT INTO product  VALUES ('28', true, '345345', '2017-06-06', false, 'image', '4', 'Mistery book', '3000.67', '6', '23');
+INSERT INTO product  VALUES ('29', true, '56894', '2017-06-06', false, 'image', '4', 'Romance book', '700.89', '31', '24');
+

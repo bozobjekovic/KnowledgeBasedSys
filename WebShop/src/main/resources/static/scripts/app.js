@@ -17,6 +17,14 @@
 			templateUrl : 'views/profile.html',
 			controller  : 'ProfileController',
 			controllerAs: 'profileCtrl'
+		}).when('/products/:param', {
+			templateUrl : 'views/products.html',
+			controller  : 'ProductsController',
+			controllerAs: 'productsCtrl'
+		}).when('/product_details/:param', {
+			templateUrl : 'views/product-details.html',
+			controller  : 'ProductController',
+			controllerAs: 'productCtrl'
 		}).when('/login', {
 			templateUrl : 'views/login.html',
 			controller  : 'LoginController',

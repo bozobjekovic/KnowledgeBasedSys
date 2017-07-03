@@ -10,7 +10,7 @@ import bbozo.sbz.webShop.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 	
-	List<Product> findTop12ByOrderByIdDesc();
+	List<Product> findTop9ByOrderByIdDesc();
 	
 	List<Product> findByProductCategory_Id(Long id);
 	

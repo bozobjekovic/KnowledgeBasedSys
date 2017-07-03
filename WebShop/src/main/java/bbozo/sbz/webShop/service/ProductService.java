@@ -32,7 +32,7 @@ public class ProductService {
 	}
 	
 	public List<Product> findNewest(){
-		return productRepository.findTop12ByOrderByIdDesc();
+		return productRepository.findTop9ByOrderByIdDesc();
 	}
 	
 	public List<Product> findByCategory(Long id){
