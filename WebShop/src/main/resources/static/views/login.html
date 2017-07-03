@@ -23,9 +23,15 @@
 								placeholder="Password">
 						</div>
 					</div>
+					<div class="alert alert-error" style="width: 219px;" ng-if="loginCtrl.wrongInput">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong>Oh snap!</strong> Change a few things up and try
+						submitting again.
+					</div>
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn" ng-click="loginCtrl.login()">Sign in</button>
+							<button type="submit" class="btn" ng-click="loginCtrl.login()">Sign
+								in</button>
 						</div>
 					</div>
 				</form>

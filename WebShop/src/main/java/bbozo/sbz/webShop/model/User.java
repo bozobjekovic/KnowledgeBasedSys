@@ -28,7 +28,7 @@ public class User implements Serializable {
 	private Role role;
 	private Date registrationDate;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private UserProfile userProfile;
 
 	public Long getId() {

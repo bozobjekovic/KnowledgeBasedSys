@@ -10,9 +10,10 @@
 		var vm = this;
 		vm.user = $localStorage.user;
 		
+		/*
 		ProfileFactory.getUserInvoices(vm.user.id).then(function(items) {
 			vm.invoices = items;
-		})
+		})*/
 	
 	}
 	

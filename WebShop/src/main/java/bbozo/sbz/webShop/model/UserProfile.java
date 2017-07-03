@@ -3,13 +3,10 @@ package bbozo.sbz.webShop.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 
 @Entity
 public class UserProfile implements Serializable {
@@ -21,10 +18,6 @@ public class UserProfile implements Serializable {
 	private Long id;
 	private String address;
 	private int bonusPoints;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@MapsId
-	private User user;
 	
 	@ManyToOne
 	private CustomerCategory customerCategory;
@@ -59,14 +52,6 @@ public class UserProfile implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 }

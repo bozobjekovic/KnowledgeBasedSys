@@ -7,13 +7,18 @@ function LoginFactory(Restangular) {
 	var retVal = {};
 
 	retVal.login = function(loginUser) {
-		Restangular.one('login').customPOST(loginUser).then(
+		return Restangular.one('login').customPOST(loginUser).then(
 			function(entry){
-				console.log(entry);
-				//return entry;
+				return {
+					status: true,
+					data: entry
+				}
 			},
 			function() {
-				console.log("ERROR");
+				return {
+					status: false,
+					data: null
+				}
 			}
 		);
 	};

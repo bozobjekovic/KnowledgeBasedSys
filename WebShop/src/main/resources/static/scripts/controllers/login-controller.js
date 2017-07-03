@@ -9,6 +9,8 @@
 
 		var vm = this;
 		
+		vm.wrongInput = false;
+		
 		vm.loginUser = {
 			username: '',
 			password: ''
@@ -17,21 +19,19 @@
 		vm.loggedUser = ($localStorage.user) ? $localStorage.user : null;
 		
 		vm.login = function(){
-			LoginFactory.login(vm.loginUser);
-			/*.then(function(item){
-				if(item.uid === ''){
-					alert('INVALID');
-				}
-				else{
-					vm.loggedUser = item;
-					$localStorage.user = item;
+			LoginFactory.login(vm.loginUser).then(function(item){
+				if(item.status){
+					vm.loggedUser = item.data;
+					$localStorage.user = item.data;
 					$location.path('/');
 				}
-			});*/
+				else{
+					vm.wrongInput = true;
+				}
+			});
 		}
 		
 		vm.logout = function(){
-			LoginFactory.logout();
 			vm.loggedUser = null;
 			$localStorage.$reset();
 			$location.path('/');

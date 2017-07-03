@@ -5,31 +5,31 @@
 	        <tbody>
 	          <tr>
 	            <td><b>Username:</b></td>
-	            <td>@mdo</td>
+	            <td><span ng-bind="profileCtrl.user.username"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Name:</b></td>
-	            <td>@fat</td>
+	            <td><span ng-bind="profileCtrl.user.firstName"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Surname:</b></td>
-	            <td>@twitter</td>
+	            <td><span ng-bind="profileCtrl.user.lastName"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Registration date:</b></td>
-	            <td>@twitter</td>
+	            <td><span ng-bind="profileCtrl.user.registrationDate | date: 'dd.MM.yyyy'"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Address:</b></td>
-	            <td>@twitter</td>
+	            <td><span ng-bind="profileCtrl.user.userProfile.address"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Bonus points:</b></td>
-	            <td>@twitter</td>
+	            <td><span ng-bind="profileCtrl.user.userProfile.bonusPoints"></span></td>
 	          </tr>
 	          <tr>
 	            <td><b>Your category:</b></td>
-	            <td>@twitter</td>
+	            <td><span ng-bind="profileCtrl.user.userProfile.customerCategory"></span></td>
 	          </tr>
 	        </tbody>
 		</table>
