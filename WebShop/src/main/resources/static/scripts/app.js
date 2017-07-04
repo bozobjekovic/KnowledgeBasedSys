@@ -25,6 +25,10 @@
 			templateUrl : 'views/product-details.html',
 			controller  : 'ProductController',
 			controllerAs: 'productCtrl'
+		}).when('/cart', {
+			templateUrl : 'views/cart.html',
+			controller  : 'CartController',
+			controllerAs: 'cartCtrl'
 		}).when('/login', {
 			templateUrl : 'views/login.html',
 			controller  : 'LoginController',

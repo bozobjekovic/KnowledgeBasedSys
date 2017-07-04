@@ -1,0 +1,134 @@
+<div class="span9">
+	<h3>
+		SHOPPING CART [ <small>{{cartCtrl.cartItems}} Item(s) </small>]<a
+			ng-href="/#/" class="btn btn-large pull-right"><i
+			class="icon-arrow-left"></i> Continue Shopping </a>
+	</h3>
+	<hr class="soft" />
+	<div ng-controller="LoginController as loginCtrl">
+		<table class="table table-bordered" ng-if="!loginCtrl.loggedUser">
+			<tr>
+				<th>YOU ARE NOT LOGGED IN</th>
+			</tr>
+			<tr>
+				<td>
+					<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="inputUsername">Username</label>
+							<div class="controls">
+								<input type="text" id="inputUsername"
+									ng-model="loginCtrl.loginUser.username" name="username"
+									placeholder="Username">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="inputPassword1">Password</label>
+							<div class="controls">
+								<input type="password" id="inputPassword1"
+									ng-model="loginCtrl.loginUser.password" name="password"
+									placeholder="Password">
+							</div>
+						</div>
+						<div class="alert alert-error" style="width: 219px;"
+							ng-if="loginCtrl.wrongInput">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<strong>ERROR</strong> Username or password is incorrect!
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<button type="submit" class="btn"
+									ng-click="loginCtrl.login('stay')">Sign in</button>
+							</div>
+						</div>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Description</th>
+				<th>Quantity/Update</th>
+				<th>Price</th>
+				<th>Discount</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in cartCtrl.itemsInCart">
+				<td><img width="60" src="../images/def.png" alt="" /></td>
+				<td>{{item.product.name}}<br />Category :
+					{{item.product.productCategory.name}}
+				</td>
+				<td>
+					<div class="input-append">
+						<input class="span1" style="max-width: 34px"
+							value="{{item.quantity}}" id="appendedInputButtons" size="16"
+							type="text">
+						<button class="btn" type="button"
+							ng-click="item.quantity = item.quantity - 1">
+							<i class="icon-minus"></i>
+						</button>
+						<button class="btn" type="button"
+							ng-click="item.quantity = item.quantity + 1">
+							<i class="icon-plus"></i>
+						</button>
+						<button class="btn btn-danger" type="button"
+							ng-click="cartCtrl.removeFromCart(item.product.id)">
+							<i class="icon-remove icon-white"></i>
+						</button>
+					</div>
+				</td>
+				<td>{{item.product.price | currency : '$'}}</td>
+				<td>--</td>
+				<td>{{item.product.price * item.quantity | currency : '$'}}</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: right">Total Price:</td>
+				<td>{{cartCtrl.totalPrice | currency : '$'}}</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: right">Total Discount:</td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: right"><strong>TOTAL
+						=</strong></td>
+				<td class="label label-important" style="display: block"><strong>
+						{{cartCtrl.totalPrice | currency : '$'}} </strong></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<td>
+					<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label"><strong> VOUCHERS
+									CODE: </strong> </label>
+							<div class="controls">
+								<input type="text" class="input-medium" placeholder="CODE">
+								<button type="submit" class="btn">ADD</button>
+							</div>
+						</div>
+					</form>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	<a ng-href="/#/" class="btn btn-large"><i class="icon-arrow-left"></i>
+		Continue Shopping 
+	</a>
+	<a ng-click="cartCtrl.finish()" class="btn btn-large pull-right">Finish 
+		<i class="icon-arrow-right"></i>
+	</a>
+
+</div>

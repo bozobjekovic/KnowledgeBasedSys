@@ -18,12 +18,14 @@
 		
 		vm.loggedUser = ($localStorage.user) ? $localStorage.user : null;
 		
-		vm.login = function(){
+		vm.login = function(type){
 			LoginFactory.login(vm.loginUser).then(function(item){
 				if(item.status){
 					vm.loggedUser = item.data;
 					$localStorage.user = item.data;
-					$location.path('/');
+					if (type != 'stay') {
+						$location.path('/');
+					}
 				}
 				else{
 					vm.wrongInput = true;
