@@ -1,0 +1,61 @@
+<div class="span9">
+    <div>
+    	<div class="well well-small" ng-controller="CartController as cartCtrl">
+			<a id="myCart" ng-href="/#/invoice">New Invoices</a>
+			<a id="myCart" ng-href="/#/sucinvoice" style="margin: 0 50px;">Succeeded Invoices</a>
+			<a id="myCart" ng-href="/#/cancinvoice">Canceled Invoices</a>
+		</div>
+    </div>
+	<h4>New Invoices</h4>
+	<div class="span9" style="margin: 0px;">
+		<div ng-repeat="invoice in invoiceCtrl.invoices" style="padding-bottom: 30px; border-bottom: 1px solid black; margin-bottom: 20px;">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Product name</th>
+						<th>Description</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Discount</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="invoiceItem in invoice.invoiceItem">
+						<td>
+							{{invoiceItem.product.name}}
+						</td>
+						<td>Category :
+							{{invoiceItem.product.productCategory.name}}
+						</td>
+						<td>
+							{{invoiceItem.amount}}
+						</td>
+						<td>{{invoiceItem.product.price | currency : '$'}}</td>
+						<td>--</td>
+						<td>{{invoiceItem.product.price * invoiceItem.amount | currency : '$'}}</td>
+					</tr>
+					<tr>
+						<td colspan="5" style="text-align: right">Total Price:</td>
+						<td>{{invoice.totalPrice | currency : '$'}}</td>
+					</tr>
+					<tr>
+						<td colspan="5" style="text-align: right">Total Discount:</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td colspan="5" style="text-align: right"><strong>TOTAL
+								=</strong></td>
+						<td class="label label-important" style="display: block"><strong>
+								{{invoice.totalPrice | currency : '$'}} </strong></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: right"><strong>STATUS :</strong></td>
+						<td style="text-align: center;"><button ng-click="invoiceCtrl.accept(invoice.id)">Accept</button></td>
+						<td style="text-align: center;"><button ng-click="invoiceCtrl.cancel(invoice.id)">Cancel</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

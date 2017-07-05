@@ -62,6 +62,10 @@ public class ProductController {
 		if(!checkInput(product)){
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		Product existProduct = productService.findByCode(product.getCode());
+		if (existProduct != null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		productService.save(product);
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}

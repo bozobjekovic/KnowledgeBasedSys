@@ -31,6 +31,10 @@ public class ProductService {
 		return productRepository.findAll(specifications);
 	}
 	
+	public Product findByCode(int code) {
+		return productRepository.findByCode(code);
+	}
+	
 	public List<Product> findNewest(){
 		return productRepository.findTop9ByOrderByIdDesc();
 	}

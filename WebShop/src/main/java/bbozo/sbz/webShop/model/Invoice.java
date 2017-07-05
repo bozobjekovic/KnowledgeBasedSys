@@ -42,13 +42,22 @@ public class Invoice implements Serializable {
 	
 	@OneToOne
 	private GeneralDiscount generalDiscount;
-	@OneToMany(mappedBy = "invoice")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<InvoiceItem> invoiceItem = new HashSet<InvoiceItem>(0);
 	@JsonIgnore
 	@OneToMany(mappedBy = "invoice", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<ItemDiscount> itemDiscounts = new HashSet<ItemDiscount>(0);
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Invoice [id=" + id + ", date=" + date + ", customer=" + customer + ", status=" + status
+				+ ", originalPrice=" + originalPrice + ", discount=" + discount + ", totalPrice=" + totalPrice
+				+ ", spentBonusPoints=" + spentBonusPoints + ", newBonusPoints=" + newBonusPoints + ", generalDiscount="
+				+ generalDiscount + ", invoiceItem=" + invoiceItem.size() + ", itemDiscounts=" + itemDiscounts + "]";
+	}
+
 	public Long getId() {
 		return id;
 	}

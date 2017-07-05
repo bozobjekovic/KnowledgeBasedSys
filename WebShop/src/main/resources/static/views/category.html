@@ -1,0 +1,36 @@
+<div class="span9">
+	<div>
+		<div class="well well-small">
+			<a id="myCart" ng-href="/#/management">Products and Categories</a> 
+			<a id="myCart" ng-href="/#/user_categories" style="margin: 0 50px;">Users Ctegories</a> 
+			<a id="myCart" ng-href="/#/action_events">Actions</a>
+		</div>
+	</div>
+	<h4>Products and Categories</h4>
+	<hr />
+	<h5>Change category</h5>
+	<div class="span4" style="margin: 0px;">
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<td><b>Category name:</b></td>
+					<td><input type="text" style="margin: 0;" ng-model="managementCtrl.selectedCategory.name"></td>
+				</tr>
+				<tr>
+					<td><b>Max discount:</b></td>
+					<td><input type="number" style="margin: 0;" min="0" step="0.01" ng-model="managementCtrl.selectedCategory.maxDiscount"></td>
+				</tr>
+				<tr>
+					<td><b>Subcategory:</b></td>
+					<td><select style="margin: 0;" ng-model="managementCtrl.selectedCategory.supercategory.id" ng-options="cat.id as cat.name for cat in managementCtrl.supercategories"></select></td>
+				</tr>
+				<tr>
+					<td><b>Save changes:</b></td>
+					<td>
+						<button ng-click="managementCtrl.updateCategory()">SAVE</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

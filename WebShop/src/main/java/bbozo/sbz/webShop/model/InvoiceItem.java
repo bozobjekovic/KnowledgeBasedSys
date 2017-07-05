@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -24,11 +23,6 @@ public class InvoiceItem implements Serializable {
 	private int amount;
 	private double discount;
 	private double totalPrice;
-	
-	@ManyToOne
-	@JoinColumn(name = "invoice_id")
-	private Invoice invoice;
-	
 	
 	public int getSerialNumber() {
 		return serialNumber;
@@ -76,6 +70,14 @@ public class InvoiceItem implements Serializable {
 	
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }

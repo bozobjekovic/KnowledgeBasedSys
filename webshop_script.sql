@@ -4,10 +4,12 @@ drop table action_event;
 drop table category_actions;
 drop table consumption_limit;
 drop table customer_category;
+drop table customer_category_consumption_limit;
 drop table general_discount;
 drop table invoice;
 drop table invoice_item;
 drop table item_discount;
+drop table invoice_invoice_item;
 drop table product;
 drop table product_category;
 drop table role;
@@ -20,6 +22,14 @@ select * from user;
 select * from user_profile;
 select * from product;
 select * from product_category;
+select * from invoice;
+select * from invoice_item;
+select * from invoice_invoice_item;
+select * from customer_category;
+select * from consumption_limit;
+select * from customer_category_consumption_limit;
+select * from action_event;
+select * from category_actions;
 
 insert into user_profile values ('1', 'Despota Stefana 7a', '50', null);
 insert into user_profile values ('2', 'Gagarinova 84', '33', null);
@@ -83,3 +93,6 @@ INSERT INTO product  VALUES ('27', true, '234234', '2017-06-06', false, 'image',
 INSERT INTO product  VALUES ('28', true, '345345', '2017-06-06', false, 'image', '4', 'Mistery book', '3000.67', '6', '23');
 INSERT INTO product  VALUES ('29', true, '56894', '2017-06-06', false, 'image', '4', 'Romance book', '700.89', '31', '24');
 
+INSERT INTO customer_category values ('1', 'Regular');
+INSERT INTO customer_category values ('2', 'Silver');
+INSERT INTO customer_category values ('3', 'Gold');

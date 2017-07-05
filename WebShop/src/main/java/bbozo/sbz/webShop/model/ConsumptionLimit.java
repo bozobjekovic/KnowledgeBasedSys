@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ConsumptionLimit implements Serializable {
@@ -20,10 +18,13 @@ public class ConsumptionLimit implements Serializable {
 	private double pointsFrom;
 	private double pointsTo;
 	private double bonusPoints;
+
 	
-	@ManyToOne
-	@JoinColumn(name = "customerCategory_id")
-	private CustomerCategory customerCategory;
+	@Override
+	public String toString() {
+		return "ConsumptionLimit [id=" + id + ", pointsFrom=" + pointsFrom + ", pointsTo=" + pointsTo + ", bonusPoints="
+				+ bonusPoints + "]";
+	}
 
 	public Long getId() {
 		return id;
@@ -56,13 +57,5 @@ public class ConsumptionLimit implements Serializable {
 	public void setBonusPoints(double bonusPoints) {
 		this.bonusPoints = bonusPoints;
 	}
-
-	public CustomerCategory getCustomerCategory() {
-		return customerCategory;
-	}
-
-	public void setCustomerCategory(CustomerCategory customerCategory) {
-		this.customerCategory = customerCategory;
-	} 
 	
 }

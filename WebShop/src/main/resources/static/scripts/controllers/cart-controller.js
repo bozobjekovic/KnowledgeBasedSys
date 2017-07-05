@@ -11,6 +11,7 @@
 		
 		if (!$localStorage.cart) { $localStorage.cart = []; } 
 		
+		var invoiceItems = [];
 		vm.totalPrice = getTotalPrice();
 		vm.itemsInCart = $localStorage.cart;
 		
@@ -18,9 +19,16 @@
 			var total = 0;
 			var cartTotal = 0;
 			var end = $localStorage.cart.length-1;
+			invoiceItems = [];
 			for ( var i in $localStorage.cart) {
 				total += $localStorage.cart[i].product.price * $localStorage.cart[i].quantity;
 				cartTotal += $localStorage.cart[i].quantity;
+				invoiceItems.push({
+					serialNumber : 1,
+					product : $localStorage.cart[i].product,
+					amount : $localStorage.cart[i].quantity,
+					totalPrice :  $localStorage.cart[i].product.price * $localStorage.cart[i].quantity
+				});
 				if (end == i) { vm.totalPrice = total; vm.cartItems = cartTotal; }
 			}
 			return total;
@@ -57,15 +65,23 @@
 		}
 		
 		vm.finish = function() {
-			var invoice = {
-				date : new Date(),
-				customer : null,
-				status : 'ORDERED',
-				totalPrice : getTotalPrice()
-			};
-			
-			CartFactory.saveInvoice(invoice).then(function(inv) {
-			});
+			if(!$localStorage.user){
+				$location.path('/login');
+			}
+			else{
+				var invoice = {
+					date : new Date(),
+					customer : null,
+					status : 'ORDERED',
+					totalPrice : getTotalPrice(),
+					customer : $localStorage.user,
+					invoiceItem : invoiceItems
+				};
+				CartFactory.saveInvoice(invoice).then(function(inv) {
+					$localStorage.cart = [];
+					$location.path('/profile');
+				});
+			}
 		}
 	}
 	

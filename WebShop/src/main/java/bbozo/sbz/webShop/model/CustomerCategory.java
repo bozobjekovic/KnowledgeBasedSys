@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class CustomerCategory implements Serializable {
 	private Long id;
 	private String name;
 	
-	@OneToMany(mappedBy = "customerCategory")
+	@OneToMany(cascade = CascadeType.ALL)
 	private Set<ConsumptionLimit> consumptionLimit = new HashSet<ConsumptionLimit>(0);
 	
 	

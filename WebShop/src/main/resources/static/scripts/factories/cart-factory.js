@@ -5,8 +5,9 @@ CartFactory.$inject = [ 'Restangular' ];
 function CartFactory(Restangular) {
 
 	var retVal = {};
-
+	
 	retVal.saveInvoice = function(invoice) {
+		console.log(invoice);
 		return Restangular.one('invoices').customPOST(invoice).then(
 				function(entry) {
 					return entry;

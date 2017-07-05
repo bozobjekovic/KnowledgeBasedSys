@@ -9,5 +9,7 @@ import bbozo.sbz.webShop.model.ProductCategory;
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long>{
 	
 	List<ProductCategory> findBySupercategory(ProductCategory productCategory);
+	
+	List<ProductCategory> findBySupercategoryNotNull();
 
 }

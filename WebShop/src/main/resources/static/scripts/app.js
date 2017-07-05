@@ -29,6 +29,34 @@
 			templateUrl : 'views/cart.html',
 			controller  : 'CartController',
 			controllerAs: 'cartCtrl'
+		}).when('/invoice', {
+			templateUrl : 'views/invoice.html',
+			controller  : 'InvoiceController',
+			controllerAs: 'invoiceCtrl'
+		}).when('/sucinvoice', {
+			templateUrl : 'views/succeededInv.html',
+			controller  : 'SInvoiceController',
+			controllerAs: 'sinvoiceCtrl'
+		}).when('/cancinvoice', {
+			templateUrl : 'views/canceledInv.html',
+			controller  : 'CInvoiceController',
+			controllerAs: 'cinvoiceCtrl'
+		}).when('/management', {
+			templateUrl : 'views/management-product.html',
+			controller  : 'ManagementController',
+			controllerAs: 'managementCtrl'
+		}).when('/category/:id/:type', {
+			templateUrl : 'views/category.html',
+			controller  : 'ManagementController',
+			controllerAs: 'managementCtrl'
+		}).when('/user_categories', {
+			templateUrl : 'views/management-users.html',
+			controller  : 'ManagementController',
+			controllerAs: 'managementCtrl'
+		}).when('/action_events', {
+			templateUrl : 'views/management-events.html',
+			controller  : 'ManagementController',
+			controllerAs: 'managementCtrl'
 		}).when('/login', {
 			templateUrl : 'views/login.html',
 			controller  : 'LoginController',

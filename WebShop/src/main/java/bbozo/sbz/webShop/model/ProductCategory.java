@@ -23,6 +23,12 @@ public class ProductCategory implements Serializable {
 	private ProductCategory supercategory;
 	
 	
+	@Override
+	public String toString() {
+		return "ProductCategory [id=" + id + ", name=" + name + ", maxDiscount=" + maxDiscount + ", supercategory="
+				+ supercategory + "]";
+	}
+
 	public Long getId() {
 		return id;
 	}

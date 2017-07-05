@@ -29,4 +29,8 @@ public class ProductCategoryService {
 	public List<ProductCategory> findSupercategories(){
 		return productCategoryRepository.findBySupercategory(null);
 	}
+	
+	public List<ProductCategory> findSubcategories(){
+		return productCategoryRepository.findBySupercategoryNotNull();
+	}
 }

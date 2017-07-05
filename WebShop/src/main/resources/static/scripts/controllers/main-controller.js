@@ -1,7 +1,7 @@
 (function(angular) {
 	'use strict';
 
-	angular.module('main', ['login', 'profile', 'products', 'product', 'cart']).controller('MainController', MainController);
+	angular.module('main', ['login', 'profile', 'products', 'product', 'cart', 'invoice', 'sinvoice', 'cinvoice', 'management']).controller('MainController', MainController);
 	
 	MainController.$inject = ['$scope', '$localStorage', 'MainFactory'];
 	

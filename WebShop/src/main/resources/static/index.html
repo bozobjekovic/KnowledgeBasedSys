@@ -44,6 +44,8 @@
                         <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                     </form>
                     <ul id="topMenu" class="nav pull-right">
+                    	<li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/management">Management</a></li>
+                    	<li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/invoice">Invoices</a></li>
                         <li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/profile">Profile</a></li>
                         <li class="" ng-if="!loginCtrl.loggedUser">
                             <a ng-href="/#/login" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
@@ -102,6 +104,7 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/ui-bootstrap-tpls.js"></script>
     <script src="js/ngStorage.min.js" type="text/javascript"></script>
+    <script src="js/angularjs-dropdown-multiselect.min.js" type="text/javascript"></script>
     
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main-controller.js"></script>
@@ -115,7 +118,15 @@
 	<script src="scripts/controllers/product-controller.js"></script>
 	<script src="scripts/factories/product-factory.js"></script>
 	<script src="scripts/controllers/cart-controller.js"></script>
-	<script src="scripts/factories/cart-factory.js"></script>	
+	<script src="scripts/factories/cart-factory.js"></script>
+	<script src="scripts/controllers/invoice-controller.js"></script>
+	<script src="scripts/factories/invoice-factory.js"></script>
+	<script src="scripts/controllers/sinvoice-controller.js"></script>
+	<script src="scripts/factories/sinvoice-factory.js"></script>
+	<script src="scripts/controllers/cinvoice-controller.js"></script>
+	<script src="scripts/factories/cinvoice-factory.js"></script>
+	<script src="scripts/controllers/management-controller.js"></script>
+	<script src="scripts/factories/management-factory.js"></script>	
 	
 	<!-- <script src="js/bootshop.js"></script> -->
 </body>

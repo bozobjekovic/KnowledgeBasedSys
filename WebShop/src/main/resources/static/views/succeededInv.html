@@ -1,45 +1,14 @@
 <div class="span9">
-	<h4>Profile Details</h4>
-	<div class="span6" style="margin: 0px;">
-		<table class="table table-striped">
-			<tbody>
-				<tr>
-					<td><b>Username:</b></td>
-					<td><span ng-bind="profileCtrl.user.username"></span></td>
-				</tr>
-				<tr>
-					<td><b>Name:</b></td>
-					<td><span ng-bind="profileCtrl.user.firstName"></span></td>
-				</tr>
-				<tr>
-					<td><b>Surname:</b></td>
-					<td><span ng-bind="profileCtrl.user.lastName"></span></td>
-				</tr>
-				<tr>
-					<td><b>Registration date:</b></td>
-					<td><span
-						ng-bind="profileCtrl.user.registrationDate | date: 'dd.MM.yyyy'"></span></td>
-				</tr>
-				<tr>
-					<td><b>Address:</b></td>
-					<td><span ng-bind="profileCtrl.user.userProfile.address"></span></td>
-				</tr>
-				<tr>
-					<td><b>Bonus points:</b></td>
-					<td><span ng-bind="profileCtrl.user.userProfile.bonusPoints"></span></td>
-				</tr>
-				<tr>
-					<td><b>Your category:</b></td>
-					<td><span
-						ng-bind="profileCtrl.user.userProfile.customerCategory"></span></td>
-				</tr>
-			</tbody>
-		</table>
-	</div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-	<hr style="border-top: 2px solid #3f4449;" />
-	<h4>My Invoices</h4>
+    <div>
+    	<div class="well well-small" ng-controller="CartController as cartCtrl">
+			<a id="myCart" ng-href="/#/invoice">New Invoices</a>
+			<a id="myCart" ng-href="/#/sucinvoice" style="margin: 0 50px;">Succeeded Invoices</a>
+			<a id="myCart" ng-href="/#/cancinvoice">Canceled Invoices</a>
+		</div>
+    </div>
+	<h4>Succeeded Invoices</h4>
 	<div class="span9" style="margin: 0px;">
-		<div ng-repeat="invoice in profileCtrl.invoices" style="padding-bottom: 30px; border-bottom: 1px solid black; margin-bottom: 20px;">
+		<div ng-repeat="invoice in sinvoiceCtrl.invoices" style="padding-bottom: 30px; border-bottom: 1px solid black; margin-bottom: 20px;">
 			<table class="table table-bordered">
 				<thead>
 					<tr>

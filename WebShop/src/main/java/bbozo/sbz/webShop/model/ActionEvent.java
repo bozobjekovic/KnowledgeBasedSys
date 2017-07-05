@@ -31,8 +31,14 @@ public class ActionEvent implements Serializable {
 			joinColumns = @JoinColumn(name = "category_id"),
 			inverseJoinColumns = @JoinColumn(name = "action_id"))
 	private Set<ProductCategory> productCategories = new HashSet<ProductCategory>(0);
-
 	
+	
+	@Override
+	public String toString() {
+		return "ActionEvent [id=" + id + ", name=" + name + ", dateStarted=" + dateStarted + ", dateEnding="
+				+ dateEnding + ", discount=" + discount + ", productCategories=" + productCategories + "]";
+	}
+
 	public Long getId() {
 		return id;
 	}

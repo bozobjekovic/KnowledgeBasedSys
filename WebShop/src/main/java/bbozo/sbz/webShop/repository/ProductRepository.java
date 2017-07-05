@@ -14,6 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpec
 	
 	List<Product> findByProductCategory_Id(Long id);
 	
+	Product findByCode(int code);
+	
 	List<Product> findByProductCategory_Supercategory_Id(Long id);
 	
 	@Query("select p from Product p where p.stock <= p.minimumStock")
