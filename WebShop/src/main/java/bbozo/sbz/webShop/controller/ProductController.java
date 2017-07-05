@@ -1,5 +1,6 @@
 package bbozo.sbz.webShop.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bbozo.sbz.webShop.model.Product;
@@ -70,22 +72,17 @@ public class ProductController {
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
 	
-	/*@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public ResponseEntity<List<Product>> filterProducts(@RequestParam(value = "filter") String filter){
-		SpecificationBuilder builder = new SpecificationBuilder();
-		
-		Pattern pattern = Pattern.compile("(\\w+?)(:|<|>)(\\w+?(\\s\\w+?)?(\\_?(\\w+?(\\s\\w+?)?)?)*),");
-		Matcher matcher = pattern.matcher(filter + ",");
-		
-		while (matcher.find()) {
-			builder.with(matcher.group(1), matcher.group(2), matcher.group(3));
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "search") String search){
+		List<Product> products = new ArrayList<>();
+		try {
+			int code = Integer.parseInt(search);
+			products.add(productService.findByCode(code));
+		} catch (Exception e) {
+			products = productService.findByName(search);
 		}
-		
-		Specification<Product> spec = builder.build();
-		List<Product> products = productService.findAllBySpecification(spec);
-		
 		return new ResponseEntity<>(products, HttpStatus.OK);
-	}*/
+	}
 	
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> orderProducts(){

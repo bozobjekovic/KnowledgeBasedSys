@@ -1,13 +1,15 @@
 (function(angular) {
 	'use strict';
 
-	angular.module('main', ['login', 'profile', 'products', 'product', 'cart', 'invoice', 'sinvoice', 'cinvoice', 'management']).controller('MainController', MainController);
+	angular.module('main', ['login', 'profile', 'products', 'product', 'cart', 'invoice', 'sinvoice', 'cinvoice', 'management', 'search']).controller('MainController', MainController);
 	
-	MainController.$inject = ['$scope', '$localStorage', 'MainFactory'];
+	MainController.$inject = ['$scope', '$location', '$localStorage', 'MainFactory'];
 	
-	function MainController($scope, $localStorage, MainFactory) {
+	function MainController($scope, $location, $localStorage, MainFactory) {
 		
 		var vm = this;
+		
+		vm.search = '';
 		
 		MainFactory.getCategories().then(function(items) {
 			vm.categories = items;
@@ -18,6 +20,10 @@
 		MainFactory.getNewestProducts().then(function(items) {
 			 vm.newest = items;
 	 	});
+		
+		vm.searchProducts = function() {
+			$location.path('/search/' + vm.search);
+		}	
 		
 	}
 	

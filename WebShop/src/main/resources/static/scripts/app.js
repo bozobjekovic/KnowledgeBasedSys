@@ -29,6 +29,10 @@
 			templateUrl : 'views/cart.html',
 			controller  : 'CartController',
 			controllerAs: 'cartCtrl'
+		}).when('/search/:param', {
+			templateUrl : 'views/search.html',
+			controller  : 'SearchController',
+			controllerAs: 'searchCtrl'
 		}).when('/invoice', {
 			templateUrl : 'views/invoice.html',
 			controller  : 'InvoiceController',
@@ -55,6 +59,10 @@
 			controllerAs: 'managementCtrl'
 		}).when('/action_events', {
 			templateUrl : 'views/management-events.html',
+			controller  : 'ManagementController',
+			controllerAs: 'managementCtrl'
+		}).when('/action_event/:id/:type', {
+			templateUrl : 'views/action-event.html',
 			controller  : 'ManagementController',
 			controllerAs: 'managementCtrl'
 		}).when('/login', {

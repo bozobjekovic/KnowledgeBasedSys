@@ -21,7 +21,7 @@
     <div id="header">
         <div class="container" ng-controller="LoginController as loginCtrl">
             <div id="welcomeLine" class="row">
-                <div class="span6" ng-if="loginCtrl.loggedUser">Welcome!<strong> 
+                <div class="span6" ng-if="!loginCtrl.show()">Welcome!<strong> 
                 	<span ng-bind="loginCtrl.loggedUser.firstName"></span> 
                 	<span ng-bind="loginCtrl.loggedUser.lastName"></span></strong>
                 </div>
@@ -35,22 +35,18 @@
                 </a>
                 <div class="navbar-inner">
                     <a class="brand" ng-href="/#/"><img src="images/logo.png" alt="Bootsshop"/></a>
-                    <form class="form-inline navbar-search" method="post" action="products.html">
-                        <input id="srchFld" class="srchTxt" type="text" />
-                        <select class="srchTxt">
-                			<option>Name</option>
-                			<option>Code</option>
-                		</select>
-                        <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
+                    <form class="form-inline navbar-search" ng-controller="MainController as mainCtrl">
+                        <input id="srchFld" ng-model="mainCtrl.search" class="srchTxt" type="text" style="padding-left: 35px;"/>
+                        <button type="submit" ng-click="mainCtrl.searchProducts()" id="submitButton" class="btn btn-primary">Search</button>
                     </form>
                     <ul id="topMenu" class="nav pull-right">
-                    	<li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/management">Management</a></li>
-                    	<li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/invoice">Invoices</a></li>
-                        <li class="" ng-if="loginCtrl.loggedUser"><a ng-href="/#/profile">Profile</a></li>
-                        <li class="" ng-if="!loginCtrl.loggedUser">
+                    	<li class="" ng-if="!loginCtrl.show()"><a ng-href="/#/management">Management</a></li>
+                    	<li class="" ng-if="!loginCtrl.show()"><a ng-href="/#/invoice">Invoices</a></li>
+                        <li class="" ng-if="!loginCtrl.show()"><a ng-href="/#/profile">Profile</a></li>
+                        <li class="" ng-if="loginCtrl.show()">
                             <a ng-href="/#/login" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
                         </li>
-                        <li class="" ng-if="loginCtrl.loggedUser">
+                        <li class="" ng-if="!loginCtrl.show()">
                             <a ng-click="loginCtrl.logout()" style="padding-right:0"><span class="btn btn-large btn-success">Log out</span></a>
                         </li>
                     </ul>
@@ -126,7 +122,9 @@
 	<script src="scripts/controllers/cinvoice-controller.js"></script>
 	<script src="scripts/factories/cinvoice-factory.js"></script>
 	<script src="scripts/controllers/management-controller.js"></script>
-	<script src="scripts/factories/management-factory.js"></script>	
+	<script src="scripts/factories/management-factory.js"></script>
+	<script src="scripts/controllers/search-controller.js"></script>
+	<script src="scripts/factories/search-factory.js"></script>	
 	
 	<!-- <script src="js/bootshop.js"></script> -->
 </body>

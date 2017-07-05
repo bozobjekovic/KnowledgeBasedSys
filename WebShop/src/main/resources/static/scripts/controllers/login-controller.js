@@ -16,6 +16,14 @@
 			password: ''
 		};
 		
+		vm.show = function() {
+			var logged = $localStorage.user;
+			if(logged == null)
+				return true;
+			else
+				return false;
+		}
+		
 		vm.loggedUser = ($localStorage.user) ? $localStorage.user : null;
 		
 		vm.login = function(type){

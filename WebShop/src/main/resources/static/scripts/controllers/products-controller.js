@@ -15,11 +15,6 @@
 			vm.products = item;
 		});
 
-		/*
-		ProductsFactory.searchByName(name).then(function(items) {
-			vm.products = items;
-		});*/
-
 	}
 
 })(angular);

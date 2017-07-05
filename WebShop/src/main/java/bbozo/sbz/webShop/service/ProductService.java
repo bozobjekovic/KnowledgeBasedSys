@@ -47,6 +47,10 @@ public class ProductService {
 		return productRepository.findByProductCategory_Supercategory_Id(id);
 	}
 	
+	public List<Product> findByName(String name) {
+		return productRepository.findByNameContaining(name);
+	}
+	
 	public List<Product> findProductsToOrder(){
 		return productRepository.find();
 	}

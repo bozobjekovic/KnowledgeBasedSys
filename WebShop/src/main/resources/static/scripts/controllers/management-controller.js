@@ -33,6 +33,14 @@
 			} else if (type == 'event') {
 				ManagementFactory.getActionEvent(param).then(function(item) {
 					vm.selectedEvent = item;
+					vm.selectedEvent.dateStarted = new Date(vm.selectedEvent.dateStarted);
+					vm.selectedEvent.dateEnding = new Date(vm.selectedEvent.dateEnding);
+					for (var i = 0; i < item.productCategories.length; i++) {
+						vm.selectedCategories.push({
+							id: item.productCategories[i].id,
+							label: item.productCategories[i].name
+						});
+					}
 				});
 			}
 		}
@@ -67,14 +75,9 @@
 			vm.categories = items;
 		});
 
-		/*
 		ManagementFactory.getActionEvents().then(function(items) {
 			vm.events = items;
 		});
-
-		ManagementFactory.getUserCategories().then(function(items) {
-			vm.user_categories = items;
-		});*/
 
 		vm.addCategory = function(type) {
 			ManagementFactory.saveCategory(vm.category).then(function(item) {
@@ -132,47 +135,31 @@
 			vm.event.productCategories = vm.selectedCategories;
 			ManagementFactory.saveEvent(vm.event).then(function(item) {
 				if(item.status){
+					vm.event = {};
+					vm.wrongInputEvent = false;
+					vm.selectedCategories = [];
 					vm.events.push(item);
 				} else {
 					vm.wrongInputEvent = true;
 				}
 			});
 		};
-
-		/*
+		
 		vm.showEvent = function(id) {
 			$location.path('/action_event/' + id + '/event');
 		};
-
+		
 		vm.updateEvent = function() {
-			ManagementFactory.saveEvent(vm.selectedEvent);
-			$location.path('/action_events');
+			vm.selectedEvent.productCategories = vm.selectedCategories;
+			ManagementFactory.saveEvent(vm.selectedEvent).then(function(item) {
+				if(item.status){
+					$location.path('/action_events');
+				}
+				else {
+					vm.wrongInputEvent = true;
+				}
+			});
 		};
-
-		vm.dateOptions = {
-			formatYear : 'yy',
-			maxDate : new Date(2020, 5, 22),
-			minDate : new Date(),
-			startingDay : 1
-		};
-
-		vm.open1 = function() {
-			vm.popup1.opened = true;
-		};
-
-		vm.open2 = function() {
-			vm.popup2.opened = true;
-		};
-
-		vm.format = 'dd-MMMM-yyyy';
-
-		vm.popup1 = {
-			opened : false
-		};
-
-		vm.popup2 = {
-			opened : false
-		};*/
 
 	}
 
