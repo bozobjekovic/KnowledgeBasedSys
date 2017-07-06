@@ -51,6 +51,30 @@ public class ProductService {
 		return productRepository.findByNameContaining(name);
 	}
 	
+	public List<Product> findByLowerPrice(double price) {
+		return productRepository.findByPriceLessThan(price);
+	}
+	
+	public List<Product> findByGreaterPrice(double price) {
+		return productRepository.findByPriceGreaterThan(price);
+	}
+	
+	public List<Product> findByPrice(double priceFrom, double priceTo) {
+		return productRepository.findByPriceBetween(priceFrom, priceTo);
+	}
+	
+	public List<Product> findByNameAndLowerPrice(String name, double price) {
+		return productRepository.findByNameContainingAndPriceLessThan(name, price);
+	}
+	
+	public List<Product> findByNameAndGreaterPrice(String name, double price) {
+		return productRepository.findByNameContainingAndPriceGreaterThan(name, price);
+	}
+	
+	public List<Product> findByNameAndPrice(String name, double priceFrom, double priceTo) {
+		return productRepository.findByNameContainingAndPriceBetween(name, priceFrom, priceTo);
+	}
+	
 	public List<Product> findProductsToOrder(){
 		return productRepository.find();
 	}

@@ -10,6 +10,9 @@
 		var vm = this;
 		
 		vm.search = '';
+		vm.priceFrom = '';
+		vm.priceTo = '';
+		vm.wrongSearchInput = false;
 		
 		MainFactory.getCategories().then(function(items) {
 			vm.categories = items;
@@ -22,7 +25,20 @@
 	 	});
 		
 		vm.searchProducts = function() {
-			$location.path('/search/' + vm.search);
+			vm.wrongSearchInput = false;
+			if (!vm.search && !vm.priceFrom && !vm.priceTo) {
+				vm.wrongSearchInput = true;
+			} else {
+				if (vm.search.trim() == "" || isNaN(vm.search)) {
+					if (parseFloat(vm.priceFrom) < 0 || parseFloat(vm.priceTo) < 0 || parseFloat(vm.priceFrom) > parseFloat(vm.priceTo)) {
+						vm.wrongSearchInput = true;
+					} else {
+						$location.path('/search/' + vm.search + '#' + vm.priceFrom + '#' + vm.priceTo);
+					}
+				} else {
+					$location.path('/search/' + vm.search);
+				}
+			}
 		}	
 		
 	}

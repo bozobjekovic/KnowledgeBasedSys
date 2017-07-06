@@ -35,9 +35,17 @@
                 </a>
                 <div class="navbar-inner">
                     <a class="brand" ng-href="/#/"><img src="images/logo.png" alt="Bootsshop"/></a>
-                    <form class="form-inline navbar-search" ng-controller="MainController as mainCtrl">
-                        <input id="srchFld" ng-model="mainCtrl.search" class="srchTxt" type="text" style="padding-left: 35px;"/>
-                        <button type="submit" ng-click="mainCtrl.searchProducts()" id="submitButton" class="btn btn-primary">Search</button>
+                    <form class="form-inline navbar-search" ng-controller="MainController as mainCtrl" style="margin-top: 0px; height: 69px;">
+                        <input id="srchFld" ng-model="mainCtrl.search" class="srchTxt" type="text" style="padding-left: 35px; margin-top: -14px;"/>
+                        <button type="submit" style="margin-top: 17px;" ng-click="mainCtrl.searchProducts()" id="submitButton" class="btn btn-primary">Search</button><br/>
+                        <label style="color: white; position: absolute; margin-top: -7px;"><b>Price: </b>&nbsp;&nbsp;&nbsp;from:</label>
+                        <input ng-model="mainCtrl.priceFrom" placeholder="from" class="srchTxt" type="number" min="0" style="width: 50px; margin-top: -48px; margin-left: 90px;"/>
+                        <label style="color: white; position: absolute; margin-top: -7px;">&nbsp;&nbsp;to:</label>
+                        <input ng-model="mainCtrl.priceTo" placeholder="to" class="srchTxt" type="number" min="0" style="width: 50px; margin-top: -48px; margin-left: 27px;"/>
+                        <div class="alert alert-error" style="width: 219px;" ng-if="mainCtrl.wrongSearchInput">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong>ERROR</strong> Wrong inputs!
+					</div>
                     </form>
                     <ul id="topMenu" class="nav pull-right">
                     	<li class="" ng-if="!loginCtrl.show()"><a ng-href="/#/management">Management</a></li>

@@ -79,7 +79,30 @@ public class ProductController {
 			int code = Integer.parseInt(search);
 			products.add(productService.findByCode(code));
 		} catch (Exception e) {
-			products = productService.findByName(search);
+			String[] params = search.split("#");
+			if (params[0].equals("")) {
+				if (!params[1].equals("null")) {
+					if (params[2].equals("null")) {
+						products = productService.findByGreaterPrice(Double.parseDouble(params[1]));
+					} else {
+						products = productService.findByPrice(Double.parseDouble(params[1]), Double.parseDouble(params[2]));
+					}
+				} else {
+					products = productService.findByLowerPrice(Double.parseDouble(params[2]));
+				}
+			} else {
+				if (!params[1].equals("null")) {
+					if (!params[2].equals("null")) {
+						products = productService.findByNameAndPrice(params[0], Double.parseDouble(params[1]), Double.parseDouble(params[2]));
+					} else {
+						products = productService.findByNameAndGreaterPrice(params[0], Double.parseDouble(params[1]));
+					}
+				} else if (!params[2].equals("null")) {
+					products = productService.findByNameAndLowerPrice(params[0], Double.parseDouble(params[2]));
+				} else {
+					products = productService.findByName(params[0]);
+				}
+			}
 		}
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}

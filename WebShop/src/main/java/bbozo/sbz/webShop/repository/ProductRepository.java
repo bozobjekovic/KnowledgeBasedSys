@@ -20,6 +20,18 @@ public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpec
 	
 	List<Product> findByNameContaining(String name);
 	
+	List<Product> findByPriceLessThan(double price);
+	
+	List<Product> findByPriceGreaterThan(double price);
+	
+	List<Product> findByPriceBetween(double priceFrom, double priceTo);
+	
+	List<Product> findByNameContainingAndPriceLessThan(String name, double price);
+	
+	List<Product> findByNameContainingAndPriceGreaterThan(String name, double price);
+	
+	List<Product> findByNameContainingAndPriceBetween(String name, double priceFrom, double priceTo);
+	
 	@Query("select p from Product p where p.stock <= p.minimumStock")
 	List<Product> find();
 
